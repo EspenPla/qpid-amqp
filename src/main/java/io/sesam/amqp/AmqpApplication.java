@@ -15,7 +15,7 @@ public class AmqpApplication {
         String clientCertificatePassword = System.getenv("client_certificate_password");
         if (null != clientCertificate && null != clientCertificatePassword) {
             byte[] base64decodedBytes = Base64.getDecoder().decode(clientCertificate);
-            Files.write(Paths.get("keystore.p12"), base64decodedBytes, StandardOpenOption.CREATE_NEW);
+            Files.write(Paths.get("keystore.p12"), base64decodedBytes);
             System.setProperty("javax.net.ssl.keyStore", "keystore.p12");
             System.setProperty("javax.net.ssl.keyStorePassword", clientCertificatePassword);
             System.setProperty("javax.net.ssl.keyStoreType", "pkcs12");
