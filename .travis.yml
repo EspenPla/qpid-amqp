@@ -1,0 +1,11 @@
+sudo: required
+
+language: java
+
+jdk: oraclejdk8
+
+services:
+  - docker
+
+after_success:
+- bash <(curl -s https://raw.githubusercontent.com/sesam-community/guidelines/master/after_success.sh)
